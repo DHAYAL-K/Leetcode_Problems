@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+    // BRUTE FORCE SOLUTION FOR THE LARGER INPUT IT TAKES MORE TIME AND RESULTS IN TIME LIMIT EXCEEDS ERROR
+        /*
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(nums[i]==nums[j])return true;
+            }
+        }
+        return false;*/
+// BETTER SOLUTION WHICH LESS TIME COMPARED TO BRUTE FORCE SOLUTION
+        map<int,int> ans;
+
+        for(int i=0;i<nums.size();i++){
+            ans[nums[i]]++;
+        }
+        map<int, int>::iterator it;
+        for(it=ans.begin(); it!=ans.end(); ++it){
+        if(it->second >1)return true;
+      }
+        return false;
+
+    }
+};
