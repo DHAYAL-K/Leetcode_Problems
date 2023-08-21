@@ -1,4 +1,24 @@
-// cycle sort
+/* using hash map
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>answer;
+        map<int,int>ans;
+        for(int i=0;i<n;i++){
+            ans[nums[i]]++;
+        }
+        for(int i=1;i<=n;i++){
+            if(ans.find(i)==ans.end()){
+                answer.push_back(i);
+            }
+        }
+
+        return answer;
+
+    }
+};*/
+// using cycle sort
 class Solution {
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
