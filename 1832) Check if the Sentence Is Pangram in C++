@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool checkIfPangram(string s) {
+        sort(begin(s), end(s));
+        int count = 1;
+        for (int i = 1; i < size(s); ++i)
+            if (s[i - 1] != s[i]) ++count;
+        return count == 26;       
+    }
+};
+
+
+/*class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        return size(unordered_set<char>{begin(sentence), end(sentence)}) == 26;
+    }
+};*/
+
+
+/*class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        if(sentence.length()<26)return false;
+        set<char>st;
+        for(int i=0;i<sentence.length();i++){
+            st.insert(sentence[i]);
+        }
+        if(st.size()==26)return true;
+        return false;
+    }
+};
+*/
