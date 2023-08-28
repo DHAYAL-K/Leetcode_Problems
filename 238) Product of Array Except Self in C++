@@ -1,0 +1,91 @@
+//Solved using Array(Two Nested Loops). Brute Force Approach
+/*
+
+    Time Complexity : O(N^2), Where N is the size of the Array(nums). Here Two nested loop creates the time 
+    complexity.
+    Space complexity : O(1), Constant space. Extra space is only allocated for the Array(output), however the
+    output does not count towards the space complexity.
+    This will give TIME LIMIT EXCEED.
+
+*/
+//BRUTE
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> output;
+        for(int i=0; i<n; i++){
+            int product = 1;
+            for(int j=0; j<n; j++){
+                if(i == j) continue;
+                product *= nums[j];
+            }
+            output.push_back(product);
+        }
+        return output;
+    }
+};
+
+/*
+
+    Time Complexity : O(N), As we iterate the Array(nums) thrice.
+
+    Space complexity : O(N), Array(prefix and postfix) space.
+
+
+
+*/
+
+
+//Better Approach
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int>prefix(nums.size());
+        vector<int>postfix(nums.size());
+        prefix[0]=1;
+        for(int i=1;i<nums.size();i++){
+            prefix[i]=prefix[i-1]*nums[i-1];
+        }
+        postfix[nums.size()-1]=1;
+        for(int i=nums.size()-2;i>=0;i--){
+            postfix[i]=postfix[i+1]*nums[i+1];
+        }
+        for(int i=0;i<nums.size();i++){
+            nums[i]=prefix[i]*postfix[i];
+        }
+        return nums;
+    }
+};
+
+/*
+
+    Time Complexity : O(N), As we iterate the Array(nums) twice. Where N = size of the array.
+
+    Space complexity : O(1), Constant space. Extra space is only allocated for the Array(output), however the
+    output does not count towards the space complexity.
+
+*/
+
+
+// OPTIMAL APPROACH
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> output(n);
+        output[0] = 1;
+        for(int i=1; i<n; i++){
+            output[i] = output[i-1] * nums[i-1];
+        }
+        int right = 1;
+        for(int i=n-1; i>=0; i--){
+            output[i] *= right;
+            right *= nums[i];
+        }
+        return output;
+    }
+};
