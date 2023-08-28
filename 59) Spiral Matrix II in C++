@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>>ans(n,vector(n,0));
+        if(n<0 || n>20)return ans;
+        int temp=1;
+        int top=0,left=0;
+        int right=n-1,bottom=n-1;
+        while(left<=right && top<=bottom){
+
+       for(int i=left;i<=right;i++){
+            ans[top][i]=temp++;
+        }
+        top++;
+        for(int j=top;j<=bottom;j++){
+            ans[j][right]=temp++;
+        }
+        right--;
+
+        if(top<=bottom){
+
+        for(int k=right;k>=left;k--){
+            ans[bottom][k]=temp++;
+        }
+        bottom--;
+
+        }
+
+        if(left<=right){
+        for(int l=bottom;l>=top;l--){
+            ans[l][left]=temp++;
+        }
+        left++;
+        }
+
+        }
+        return ans;
+        
+    }
+
+};
