@@ -1,0 +1,62 @@
+/* Brute force
+ans+=min(left(i),right(j))-height[i]; 
+here to find the min we need i and j for that we need to use nested loop which gives time complexity of O(n^2) space complexity O(1)
+*/
+
+/* better approach
+to solve this we can use prefix and suffix approach. for this approach we use 3 for loops which gives a TC of O(3n) ans we uses to two vector to preffix max and suffix max so SC O(2n)
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        vector<int>prefix;
+        vector<int>suffix;
+        int prefix_max=0;
+        int suffix_max=0;
+        int ans=0;
+        for(int i=0;i<height.size();i++){
+            if(height[i]>prefix_max)prefix_max=height[i];
+            prefix.push_back(prefix_max);
+        }
+
+        for(int i=height.size()-1;i>=0;i--){
+            if(height[i]>suffix_max)suffix_max=height[i];
+            suffix.push_back(suffix_max);
+        }
+        reverse(suffix.begin(),suffix.end());
+
+        for(int i=0;i<height.size();i++){
+            ans+=min(prefix[i],suffix[i])-height[i];
+        }
+        return ans;
+
+    }
+};
+
+*/
+
+// optimal approach -> we can use two pointer approach for this problem where TC is O(n) and SC is O(1)
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int left=0;
+        int right=height.size()-1;
+        int left_max=0;
+        int right_max=0;
+        int ans=0;
+        while(left<=right){
+            if(height[left]<=height[right]){
+                if(height[left]>=left_max)left_max=height[left];
+                else ans+=left_max-height[left];
+                left++;
+            }
+            else{
+                if(height[right]>=right_max)right_max=height[right];
+                else ans+=right_max-height[right];
+                right--;
+
+            }
+        }
+        return ans;
+    }
+};
