@@ -20,7 +20,7 @@ public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
         map<int, int> m;
         vector<int> vec = nums;
-        int n = nums.size();
+        int n = nums.size(); 
         
         // Sort vec in ascending order
         // T.C = O(nlogn)
