@@ -9,7 +9,7 @@ public:
             }
             else{
                 load+=weights[i];
-            }
+            } 
         }
         return day;
     }
