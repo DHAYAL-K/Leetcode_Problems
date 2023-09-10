@@ -44,7 +44,7 @@ public:
                 while(k<end){
                 long long sum=nums[i]+nums[j];
                 sum+=nums[k]+nums[end];
-                    if(target<sum){
+                    if(target<sum){ 
                         end--;
                     }
                     else if(target>sum){
