@@ -1,0 +1,42 @@
+/*  Brute force solution
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        if(arr.size()>1000 || arr.size()==0 || k<=0 || k>1000)return -1;
+        int last=*max_element(arr.begin(),arr.end());
+        vector<int>ans;
+        int left=0;
+        for(int i=1;i<=last;i++){
+            if(arr[left]!=i){
+                ans.push_back(i);
+            }
+            else left++;
+        }
+        if(k<=ans.size()){
+        return ans[k-1];
+        }
+        else{
+       return last + (k - ans.size());
+       }
+    }
+};
+*/
+// Optimal solution
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int missing=0;
+        int left=0,right=arr.size()-1;
+        while(left<=right){
+            int mid=left+((right-left)/2);
+            missing=arr[mid]-(mid+1);
+            if(missing<k){
+                left=mid+1;
+            }
+            else{
+                right=mid-1;
+            }
+        }
+        return left+k;
+    }
+};
