@@ -14,7 +14,7 @@ bool fun(vector<int>& nums, int threshold,int mid){
 		int mid=left+((right-left)/2);
 		if(fun(nums,threshold,mid)){
 			right=mid-1;
-		}
+		} 
 		else{
 			left=mid+1;
 		}
