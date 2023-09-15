@@ -13,7 +13,7 @@ public:
                 set<long long>hashset;
                 for(int k=j+1;k<n;k++){
                     sum=nums[i]+nums[j];
-                    sum+=nums[k];
+                    sum+=nums[k]; 
                     fourth=target-sum;
                     if(hashset.find(fourth)!=hashset.end()){
                         vector<int> temp={nums[i],nums[j],nums[k],(int)fourth};
