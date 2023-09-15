@@ -9,7 +9,7 @@ public:
             }
             else if(num2 == element){
                 count2++;
-            }
+            } 
             else if(count1 == 0){
                 num1 = element;
                 count1 = 1;
