@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int x) {
+        int target=accumulate(nums.begin(),nums.end(),0)-x;
+        int l=0;
+        int maxi=-1;
+        int sum=0;
+        for(int i=0;i<nums.size();i++){
+            sum+=nums[i];
+
+            while(l<=i and sum>target){
+                sum-=nums[l];
+                l++;
+            }
+            
+            if(sum==target){
+                maxi=max(maxi,i-l+1);
+            }
+        }
+        if(maxi==-1)return -1;
+        return nums.size()-maxi;
+        
+    }
+};
