@@ -9,7 +9,7 @@ public:
                 else temp=2;
         for(int i=0;i<rows;i++){
             if(items[i][temp]==ruleValue)count++;
-        }
+        } 
         return count;
     }
 };
