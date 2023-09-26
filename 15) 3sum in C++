@@ -13,7 +13,7 @@ public:
                 if(sum>0){
                     k--;
                 }
-                else if(sum<0){
+                else if(sum<0){ 
                     j++;
                 } 
                 else{
