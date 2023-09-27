@@ -13,7 +13,7 @@ public:
         }
         else{
             double temp=((double)nums1[n1/2]+nums1[n1/2 -1])/2;
-            return temp;
+            return temp; 
         }
     }
 };
