@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxDepth(string s) {
+        int curr_ele=0,maxi=0;
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='('){
+                curr_ele++;
+                if(curr_ele>maxi){
+                    maxi=curr_ele;
+                }
+            }
+            else if(s[i]==')'){
+                if(curr_ele>0){
+                    curr_ele--;
+                }
+                else{
+                    return -1;
+                }
+            }
+        }
+        if(curr_ele!=0)return -1;
+        return maxi;
+    }
+};
