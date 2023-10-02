@@ -1,0 +1,21 @@
+class Solution {
+public:
+    string reverseOnlyLetters(string s) {
+        int i=0;
+        int e=s.size()-1;
+        while(i<e){
+            while(i<e && !((s[i]>=65 && s[i]<=90)||(s[i]>=97 && s[i]<=122) )){
+                i++;
+            }
+            while(i<e && !((s[e]>=65 && s[e]<=90)||(s[e]>=97 && s[e]<=122) )){
+                e--;
+            }
+            if(i<e){
+                swap(s[i],s[e]);
+                i++;
+                e--;
+            }
+        }
+        return s;
+    }
+};
