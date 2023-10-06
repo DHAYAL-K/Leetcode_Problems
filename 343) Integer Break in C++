@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int funbreak(int i,int n){
+            int pro=1;
+            if(n%i==0){
+                for(int j=0;j<i;j++){
+                    pro*=n/i;
+                }
+                
+            }
+            else{
+                int zp=i-(n%i);
+                for(int k=0;k<i;k++){
+                    if(k>=zp){
+                        pro*=(n/i +1);
+                    }
+                    else{
+                        pro*=n/i;
+                    }
+                }
+            }
+            return pro;
+    }
+    int integerBreak(int n) {
+        int ans=INT_MIN;
+        for(int i=2;i<=n;i++){
+            int temp=funbreak(i,n);
+            ans=max(ans,temp);
+        }
+        return ans;
+    }
+};
