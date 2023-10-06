@@ -1,3 +1,6 @@
+TC->O(n square)
+SC->O(1)
+
 class Solution {
 public:
     int funbreak(int i,int n){
