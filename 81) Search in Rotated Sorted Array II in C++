@@ -6,7 +6,7 @@ public:
     while(left<=right){
         int mid=left+((right-left)/2);
         if(nums[mid]==target)return true;
-// EDGE CASE
+//  EDGE CASE
         if(nums[left]==nums[mid] && nums[mid]==nums[right]){
             left=left+1;
             right=right-1;
