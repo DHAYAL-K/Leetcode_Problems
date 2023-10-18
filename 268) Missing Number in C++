@@ -6,7 +6,7 @@ public:
         int sum=0;
         int check=(n*(n+1))/2;
         for(int i=0;i<n;i++){
-            sum+=nums[i];
+            sum+=nums[i]; 
         }
         return {check-sum};
     }
