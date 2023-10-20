@@ -5,7 +5,7 @@
  *     ListNode *next;
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
- */
+ */  
  //Optimal approach
 class Solution {
 public:
