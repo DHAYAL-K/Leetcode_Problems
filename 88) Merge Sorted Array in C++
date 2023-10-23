@@ -11,7 +11,6 @@ public:
         sort(nums1.begin(),nums1.end());
     }
 };
-
 /*  BRUTE FORCE SOLUTION IN C++
 class Solution {
 public:
