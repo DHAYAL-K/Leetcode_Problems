@@ -1,3 +1,4 @@
+//BRUTE APPROACH
 class Solution {
 private: 
     bool check(string &s, int i, int j){
