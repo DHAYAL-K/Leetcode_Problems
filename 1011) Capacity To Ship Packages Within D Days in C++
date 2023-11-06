@@ -7,7 +7,7 @@ public:
                 day++;
                 load=weights[i]; 
             }
-            else{
+            else{ 
                 load+=weights[i];
             } 
         }
