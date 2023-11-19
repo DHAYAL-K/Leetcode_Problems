@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int fun(int num,int cnt){
+        if(num==0){
+            return cnt;
+        }
+        if(num%2==0){
+            return fun(num/2,cnt+1);
+        }
+        else{
+            return fun(num-1,cnt+1);
+        }
+        
+    }
+    int numberOfSteps(int num) {
+        int cnt=0;
+        return fun(num,cnt);
+    }
+};
