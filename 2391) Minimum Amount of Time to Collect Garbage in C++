@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int garbageCollection(vector<string>& garbage, vector<int>& travel) {
+        unordered_map<char,int>last;
+        int ans=0;
+        for(int i=0;i<garbage.size();i++){
+            ans+=garbage[i].size();
+            for(auto it:garbage[i])last[it]=i;
+        }
+        for(int i=1;i<travel.size();i++){
+            travel[i]+=travel[i-1];
+        }
+        for(auto it:"MPG"){
+            if(last[it]!=0){
+                ans+=travel[last[it]-1];
+            }
+        }
+        return ans;
+    }
+};
