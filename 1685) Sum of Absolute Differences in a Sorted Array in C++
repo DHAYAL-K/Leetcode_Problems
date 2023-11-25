@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
+        vector<int>ans;
+        int totalsum=0;
+        for(auto it:nums)totalsum+=it;
+        int leftsum=0;
+        for(int i=0;i<nums.size();i++){
+            int left=(nums[i]*i)-leftsum;
+            int right=totalsum-leftsum-(nums[i]*(nums.size()-i));
+            leftsum+=nums[i];
+            ans.push_back(left+right);
+        }
+        return ans;
+    }
+};
+/*
+class Solution {
+public:
+    vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
+        vector<int>ans;
+        int cnt;
+        for(int i=0;i<nums.size();i++){
+            cnt=0;
+            for(int j=0;j<nums.size();j++){
+                cnt+=abs(nums[i]-nums[j]);
+            }
+            ans.push_back(cnt);
+        }
+        return ans;
+    }
+};
+*/
