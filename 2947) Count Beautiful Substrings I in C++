@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class Solution {
+public:
+    int beautifulSubstrings(string s, int k) {
+        int n = s.size();
+        int cnt = 0;
+        
+        for (int i = 0; i < n; i++) {
+            int vow = 0, con = 0;
+            
+            for (int j = i; j < n; j++) {
+                if (s[j] == 'a' || s[j] == 'e' || s[j] == 'i' || s[j] == 'o' || s[j] == 'u') {
+                    vow++;
+                } else {
+                    con++;
+                }
+
+                if (vow == con && (vow * con) % k == 0) {
+                    cnt++;
+                }
+            }
+        }
+
+        return cnt;
+    }
+};
