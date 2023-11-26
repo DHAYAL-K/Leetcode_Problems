@@ -1,0 +1,31 @@
+class Solution {
+public:
+    void right(vector<vector<int>>& ans, int k, int i) {
+        int n = ans[i].size();
+        k%=n;
+        reverse(ans[i].begin(), ans[i].end() - k);
+        reverse(ans[i].end() - k, ans[i].end());
+        reverse(ans[i].begin(), ans[i].end());
+    }
+
+    void left(vector<vector<int>>& ans, int k, int i) {
+        int n = ans[i].size();
+        k %= n; 
+
+        reverse(ans[i].begin(), ans[i].begin() + k);
+        reverse(ans[i].begin() + k, ans[i].end());
+        reverse(ans[i].begin(), ans[i].end());
+    }
+
+    bool areSimilar(vector<vector<int>>& mat, int k) {
+        vector<vector<int>> ans = mat;
+        for (int i = 0; i < mat.size(); i++) {
+            if (i % 2 == 0) {
+                right(ans, k, i);
+            } else {
+                left(ans, k, i);
+            }
+        }
+        return mat == ans;
+    }
+};
