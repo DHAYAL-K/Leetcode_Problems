@@ -1,0 +1,23 @@
+class Solution {
+public:
+    void com_rec(int i,int target,vector<vector<int>>&ans,vector<int>&temp,vector<int>candidates){
+        if(i==candidates.size()){
+            if(target==0){
+                ans.push_back(temp);
+            }
+                return;
+        }
+        if(candidates[i]<=target){
+            temp.push_back(candidates[i]);
+            com_rec(i,target-candidates[i],ans,temp,candidates);
+            temp.pop_back();
+        }
+        com_rec(i+1,target,ans,temp,candidates);
+    }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>>ans;
+        vector<int>temp;
+        com_rec(0,target,ans,temp,candidates);
+        return ans;
+    }
+};
