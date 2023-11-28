@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<vector<int>>rec(vector<int>& can, int target,int i,int n,vector<vector<int>>&ans,vector<int>temp){
+        if(target==0){
+            ans.push_back(temp);
+            return ans;
+        }
+        for(int low=i;low<n;low++){
+            if(low>i && can[low]==can[low-1])continue;
+            if(can[i]>target)break;
+            temp.push_back(can[low]);
+            rec(can,target-can[low],low+1,n,ans,temp);
+            temp.pop_back();
+        }
+        return ans;
+    }
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<vector<int>>ans;
+        vector<int>temp;
+        int n=candidates.size();
+        sort(candidates.begin(),candidates.end());
+        return rec(candidates,target,0,n,ans,temp);
+    }
+};
