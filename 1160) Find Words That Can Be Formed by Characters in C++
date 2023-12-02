@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int countCharacters(vector<string>& words, string chars) {
+        map<int,int>mpp,mpp1;
+        for(int i=0;i<chars.size();i++){
+            mpp[chars[i]]++;
+        }
+        int ans=0;
+        for(int j=0;j<words.size();j++){
+            int a=0;
+            mpp1=mpp;
+            if(chars.size()>=words[j].size()){
+            string temp=words[j];
+            for(int k=0;k<temp.size();k++){
+                if(mpp1[temp[k]]<=0){
+                    a=0;
+                    break;
+                }
+                else{
+                    a++;
+                    mpp1[temp[k]]--;
+                }
+            }
+            ans+=a;
+           }
+        }
+        return ans;
+    }
+};
