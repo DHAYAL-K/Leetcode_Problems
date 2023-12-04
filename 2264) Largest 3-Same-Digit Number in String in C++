@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string largestGoodInteger(string num) {
+        int n=num.size();
+        int result=-1;
+        for(int i=1;i<n-1;i++){
+            if(num[i]==num[i-1] && num[i]==num[i+1]){
+                result=max(result,num[i]-'0');
+            }
+        }
+        if(result==-1)return "";
+        return string(3,'0'+result);
+    }
+};
+/*          Brute Force
+class Solution {
+public:
+    string largestGoodInteger(string num) {
+        vector<char>ans;
+        string temp;
+        for(int i=num.size()-2;i>0;i--){
+            if(num[i]==num[i+1] && num[i-1]==num[i]){
+                ans.push_back(num[i]);
+            }
+        }
+        sort(ans.begin(),ans.end());
+        int n=ans.size()-1;
+        if(n>=0){
+        temp+=ans[n];
+        temp+=ans[n];
+        temp+=ans[n];
+        return temp;}
+        else return "";
+    }
+}; 
+*/
