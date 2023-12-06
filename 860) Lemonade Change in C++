@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool lemonadeChange(vector<int>& bills) {
+        int rup5=0;
+        int rup10=0;
+        int rup20=0;
+        int n=bills.size();
+        for(int i=0;i<n;i++){
+            if(bills[i]==5)rup5++;
+            if(bills[i]==10){
+                rup10++;
+                if(rup5==0)return false;
+                rup5--;
+            }
+            if(bills[i]==20){
+                rup20++;
+                if(rup10>=1 && rup5>=1){
+                    rup10=rup10-1;
+                    rup5=rup5-1;
+                }
+                else if(rup5>=3)
+                rup5=rup5-3;
+                
+                else{
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
