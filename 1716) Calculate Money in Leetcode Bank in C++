@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int totalMoney(int n) {
+        int temp = 1;
+        int ans = 1;
+        int output = 0;
+        
+        for (int i = 1; i <= n; i++) {
+            if (i % 7 == 1) {
+                temp = i / 7 + 1;
+                ans = temp;
+            }
+            
+            output += ans;
+            ans++;
+        }
+        
+        return output;
+    }
+};
