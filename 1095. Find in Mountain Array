@@ -9,7 +9,7 @@ public:
 
         // Binary search for the target in the increasing part of the mountain array.
         int increasingIndex = binarySearch(0, peakIndex, target, mountainArr, false);
-        if (mountainArr.get(increasingIndex) == target) 
+        if (mountainArr.get(increasingIndex) == target)  
             return increasingIndex; // Target found in the increasing part.
 
         // Binary search for the target in the decreasing part of the mountain array.
