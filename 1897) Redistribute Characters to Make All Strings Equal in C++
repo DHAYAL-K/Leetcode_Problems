@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool makeEqual(vector<string>& words) {
+        vector<int>check(26,0);
+        int n=words.size();
+        for(int i=0;i<n;i++){
+            string temp=words[i];
+            for(int j=0;j<temp.size();j++){
+                check[temp[j]-'a']++;
+            }
+        }
+        for(int i=0;i<26;i++){
+            if(check[i]%n)return false;
+        }
+        return true;
+
+    }
+};
