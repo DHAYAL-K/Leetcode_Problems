@@ -15,7 +15,7 @@ public:
     }
     
     vector<int> sortByBits(vector<int>& arr) {
-        // Use the compare function to sort the vector
+        // Use the compare function to sort the vector 
         sort(arr.begin(), arr.end(), compare);
         
         // Return the sorted vector
