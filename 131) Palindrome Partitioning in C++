@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool check_pali(string s,int start,int end){
+        while(start<=end){
+            if(s[start++]!=s[end--])return false;
+        }
+        return true;
+    }
+    void pp(string s,int i,int n,vector<vector<string>>&ans,vector<string>&temp){
+        if(i==n){
+            ans.push_back(temp);
+            return;
+        }
+        for(int j=i;j<n;j++){
+            if(check_pali(s,i,j)){
+                temp.push_back(s.substr(i,j-i+1));
+                pp(s,j+1,s.size(),ans,temp);
+                temp.pop_back();
+            }
+        }
+    }
+    vector<vector<string>> partition(string s) {
+        vector<vector<string>>ans;
+        vector<string>temp;
+        pp(s,0,s.size(),ans,temp);
+        return ans;
+    }
+};
