@@ -6,7 +6,7 @@ public:
         int left=0;
         int right=piles.size()-1;
         int right_before=right-1;
-        while(left<right_before){
+        while(left<right_before){ 
             cnt+=piles[right_before];
             left++;
             right_before=right_before-2;
