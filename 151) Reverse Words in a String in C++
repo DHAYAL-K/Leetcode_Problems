@@ -7,7 +7,7 @@ public:
             while(i<n && s[i]==' ')i++;
             if(i>=n)break;
             while(i<n && s[i]!=' '){
-                temp+=s[i];
+                temp+=s[i]; 
                 i++;
                 }
                 if(ans==""){
