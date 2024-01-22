@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        map<int,int>mpp;
+        int temp=0;
+        for(int i=0;i<nums.size();i++){
+            mpp[nums[i]]++;
+            if(mpp[nums[i]]==2)temp=nums[i];
+        }
+        int num=0;
+        for(int i=1;i<=nums.size();i++){
+            if(mpp.find(i)==mpp.end()){
+                num=i;
+                break;
+            }
+        }
+        return {temp,num};
+    }
+};
