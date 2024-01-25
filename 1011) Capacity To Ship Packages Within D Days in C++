@@ -11,7 +11,7 @@ public:
                 load+=weights[i];
             } 
         }
-        return day;
+     return day;
     }
     int shipWithinDays(vector<int>& weights, int days) {
         int left=*max_element(weights.begin(),weights.end());
