@@ -8,7 +8,7 @@ public:
                 load=weights[i];
             }
             else{ 
-                load+=weights[i];
+               load+=weights[i];
             } 
         }
      return day;
