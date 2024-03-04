@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int bagOfTokensScore(vector<int>& tokens, int power) {
+        sort(tokens.begin(),tokens.end());
+        if(tokens.size()==0 || tokens[0]>power)return 0;
+        int left=0,right=tokens.size()-1;
+        int score=0;
+        int maxi=0;
+        while(left<=right){
+            if(tokens[left]<=power){
+                score++;
+                maxi=max(maxi,score);
+                power-=tokens[left];
+                left++;
+            }
+            else{
+                score--;
+                power+=tokens[right];
+                right--;
+            }
+        }
+        return maxi;
+    }
+};
