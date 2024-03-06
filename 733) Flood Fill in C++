@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        if(image[sr][sc]==color)return image;
+        int n=image.size();
+        int m=image[0].size();
+        int temp=image[sr][sc];
+        image[sr][sc]=color;
+        queue<pair<int,int>>qt;
+        qt.push({sr,sc});
+        while(!qt.empty()){
+            int SR=qt.front().first;
+            int SC=qt.front().second;
+            qt.pop();
+            int row[]={0,0,-1,1};
+            int col[]={-1,1,0,0};
+            for(int i=0;i<4;i++){
+                int nr=SR+row[i];
+                int nc=SC+col[i];
+                if(nr>=0 && nr<n && nc>=0 && nc<m && image[nr][nc]==temp){
+                    image[nr][nc]=color;
+                    qt.push({nr,nc});
+                }
+            }
+
+        }
+        return image;
+    }
+};
