@@ -21,6 +21,6 @@ public:
         if(it->second >1)return true;
       }
         return false;
-
+//The optimal solution will be using n*(n-1)/2
     }
 };
