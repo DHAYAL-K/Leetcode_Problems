@@ -62,7 +62,7 @@ public:
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
  * right(right) {}
  * };
- */ Brute force
+ */ Brute force which may result time limit exceed
 class Solution {
 public:
     bool isEvenOddTree(TreeNode* root) {
