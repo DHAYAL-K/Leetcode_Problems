@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int findMaxLength(vector<int>& nums) {
+        vector<int>prefix;
+        map<int,int>mpp;
+        mpp[0]=-1;
+        prefix.push_back(0);
+        int ans=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==0){
+                prefix.push_back(prefix.back()-1);
+            }
+            else{
+                prefix.push_back(prefix.back()+1);
+            }
+            if(mpp.find(prefix[i+1])==mpp.end()){
+                mpp[prefix[i+1]]=i;
+            }
+            else{
+                ans=max(ans,i-mpp[prefix[i+1]]);
+            }
+        }
+        return ans;
+    }
+};
