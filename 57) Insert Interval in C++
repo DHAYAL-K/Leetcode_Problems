@@ -1,0 +1,25 @@
+//56. Merge Intervals 
+//both the questions are neraly same only one modification is required to solve this question
+
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>>ans;
+        intervals.push_back(newInterval);
+        int n=intervals.size();
+        sort(intervals.begin(),intervals.end());
+        if(n!=0)ans.push_back({intervals[0][0],intervals[0][1]});
+        for(int i=1;i<n;i++){
+            vector<int>temp=ans.back();
+            if(intervals[i][0]>=temp[0] && intervals[i][0]<=temp[1]){
+                ans.pop_back();
+                int maxi=max(temp[1],intervals[i][1]);
+                ans.push_back({temp[0],maxi});
+            }
+            else{
+                ans.push_back({intervals[i][0],intervals[i][1]});
+            }
+        }
+        return ans;
+    }       
+};
