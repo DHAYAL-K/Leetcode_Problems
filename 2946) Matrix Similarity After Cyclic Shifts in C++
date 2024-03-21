@@ -2,7 +2,7 @@ class Solution {
 public:
     void right(vector<vector<int>>& ans, int k, int i) {
         int n = ans[i].size();
-        k%=n;
+        k%=n; //To reduce the number of iteration we are using this modulo operator
         reverse(ans[i].begin(), ans[i].end() - k);
         reverse(ans[i].end() - k, ans[i].end());
         reverse(ans[i].begin(), ans[i].end());
