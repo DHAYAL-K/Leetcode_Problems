@@ -13,3 +13,5 @@ public:
         return ans;
     }
 };
+TC:O(2N)
+SC:O(N)
