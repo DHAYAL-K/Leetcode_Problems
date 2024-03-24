@@ -20,6 +20,6 @@ public:
         }
 
         // Return 0 if the flag indicates that the values are the same; otherwise, return 1.
-        return ((areValuesSame) ? 0 : 1) ;
+        return ((areValuesSame) ? 0 : 1) ; // we can also use if else here
     }
 };
