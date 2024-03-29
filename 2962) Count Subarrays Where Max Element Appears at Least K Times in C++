@@ -1,0 +1,18 @@
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, int k) {
+        long long ans=0;
+        long long ele=*max_element(nums.begin(),nums.end());
+        unordered_map<int,int>mpp;
+        int n=nums.size();
+        for(int l=0,r=0;r<n;r++){
+            mpp[nums[r]]++;
+                while(mpp[ele]>=k && l<=r){
+                    ans+=(n-r);
+                    mpp[nums[l]]--;
+                    l++;
+                }
+        }
+        return ans;
+    }
+};
