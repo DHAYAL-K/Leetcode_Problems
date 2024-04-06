@@ -1,0 +1,34 @@
+class Solution {
+public:
+    string minRemoveToMakeValid(string s) {
+        stack<char>st;
+        int n=s.size();
+        int cnt=0;
+        for(int i=0;i<n;i++){
+            if(s[i]=='('){
+                st.push(s[i]);
+                cnt++;
+            }
+            else if(s[i]==')' && cnt>0){
+                st.push(s[i]);
+                cnt--;
+            }
+            else if(s[i]!='(' && s[i]!=')'){
+                st.push(s[i]);
+            }
+        }
+        string ans;
+        while(!st.empty()){
+
+            if(st.top()=='(' && cnt>0){
+                cnt--;
+            }
+            else{
+                ans+=st.top();
+            }
+            st.pop();
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
