@@ -1,0 +1,43 @@
+//                          OPTIMAL APPROACH
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int target=tickets[k];
+        int ans=0;
+        for(int i=0;i<tickets.size();i++){
+            if(i<=k){
+                ans+=min(tickets[i],target);
+            }
+            else{
+                ans+=min(tickets[i],target-1);
+            }
+        }
+        return ans;
+    }
+};
+/*                           BRUTE APPROACH
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        queue<pair<int,int>>qt;
+        int n=tickets.size();
+        int cnt=0;
+        for(int i=0;i<n;i++){
+            qt.push({tickets[i],i});
+        }
+        while(!qt.empty()){
+            auto it=qt.front();
+            qt.pop();
+            if(it.first!=0){
+                cnt++;
+                qt.push({it.first-1,it.second});
+                it.first=it.first-1;
+            }
+            if(it.first==0 && it.second==k){
+                return cnt;
+            }
+
+        }
+        return cnt;
+    }
+};*/
