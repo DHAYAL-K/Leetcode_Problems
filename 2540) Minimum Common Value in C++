@@ -1,5 +1,5 @@
 //The brute force approach will be using double for loop which will leads to Time limit exceed with a TC of n square
-//given that its a sorted array we can 
+//given that its a sorted array we can solve this in O of n
 class Solution {
 public:
     int getCommon(vector<int>& nums1, vector<int>& nums2) {
