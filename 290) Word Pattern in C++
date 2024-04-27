@@ -1,0 +1,35 @@
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        map<char,string>mpp;
+        map<string,char>bp;
+        vector<string>vt;
+        int n=s.size();
+        string temp="";
+        for(int i=0;i<n;i++){
+            if(s[i]!=' '){
+                temp+=s[i];
+            }
+            else{
+                vt.push_back(temp);
+                temp="";
+            }
+        }
+        if(temp!=""){
+            vt.push_back(temp);
+        }
+        if(pattern.size()!=vt.size()){
+            return false;
+        }
+        for(int i=0;i<pattern.size();i++){
+            if(mpp.find(pattern[i])==mpp.end() && bp.find(vt[i])==bp.end()){
+                mpp[pattern[i]]=vt[i];
+                bp[vt[i]]=pattern[i];
+            }
+            else if(mpp[pattern[i]]!=vt[i] || bp[vt[i]]!=pattern[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
