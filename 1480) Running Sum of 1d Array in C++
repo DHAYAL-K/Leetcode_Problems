@@ -9,3 +9,5 @@ public:
         return nums;
     }
 };
+TC:O(N)
+SC:O(1)
