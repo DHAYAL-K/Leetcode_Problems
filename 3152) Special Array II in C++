@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<bool> isArraySpecial(vector<int>& nums, vector<vector<int>>& queries) {
+        vector<int>check(1,0);
+        vector<bool>ans;
+        int j=0;
+        for(int i=0;i<nums.size()-1;i++){
+          if(nums[i]%2 == nums[i+1]%2){
+            j++;
+          }
+          check.push_back(j);
+        }
+        for(int i=0;i<queries.size();i++){
+            ans.push_back(check[queries[i][0]]==check[queries[i][1]]);
+        }
+        return ans;
+    }
+};
