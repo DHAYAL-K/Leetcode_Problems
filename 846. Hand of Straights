@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool isNStraightHand(vector<int>& hand, int groupSize) {
+        if (hand.size() % groupSize != 0) return false; 
+        
+        
+        map<int, int> mpp;
+        for (int card : hand) {
+            mpp[card]++;
+        }
+        vector<int> sortedHand(hand);
+        sort(sortedHand.begin(), sortedHand.end());
+        
+        for (int card : sortedHand) {
+            if (mpp[card] == 0) continue;
+            for (int i = 0; i < groupSize; ++i) {
+                int currentCard = card + i;
+                if (mpp.find(currentCard) == mpp.end() || mpp[currentCard] == 0) {
+                    return false;
+                }
+                mpp[currentCard]--; 
+            }
+        }
+        
+        return true;
+    }
+};
