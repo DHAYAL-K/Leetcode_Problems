@@ -9,7 +9,7 @@ public:
             }
             else if(s[i]=='(' && cnt>=1){
                 ans+=s[i];
-                cnt++;
+                cnt++; 
             }
             else if(s[i]==')' && cnt>1){
                 ans+=s[i];
