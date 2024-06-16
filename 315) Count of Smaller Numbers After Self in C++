@@ -1,0 +1,34 @@
+class Solution {
+public:
+    
+    void update(int val,int id,vector<int>&bits){
+        while(id<=(bits.size()-1)){
+            bits[id]+=val;
+            id+=(id & -id);
+        }
+    }
+    int query(int id,vector<int>&bits){
+        int ans=0;
+        while(id>0){
+            ans+=bits[id];
+            id-=(id & -id);
+        }
+        return ans;      
+    }
+    vector<int> countSmaller(vector<int>& nums) {
+        vector<pair<int,int>>input;
+        int n=nums.size();
+        vector<int>ans(n,0);
+        vector<int>bits(n+1,0);
+        for(int i=0;i<n;i++){
+            input.push_back({nums[i],i});
+        }
+        sort(input.begin(),input.end());
+        for(int j=0;j<n;j++){
+            int s=input[j].second;
+            update(1,s+1,bits);
+            ans[s]=query(n,bits)-query(s+1,bits);
+        }
+        return ans;
+    }
+};
